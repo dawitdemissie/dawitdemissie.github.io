@@ -1,241 +1,347 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Faculty profile of Dawit H. Demissie, Professor at the Gabelli School of Business, Fordham University.">
-  <title>Dawit H. Demissie</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      color-scheme: light;
-      --ink: #1c2a3a;
-      --muted: #5c6773;
-      --accent: #8a2c2c;
-      --gold: #a9782f;
-      --paper: #f5f6f1;
-      --card: #ffffff;
-      --line: #dcded6;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
-      background:
-        radial-gradient(circle, rgba(28,42,58,0.05) 0.6px, transparent 0.6px) 0 0 / 14px 14px,
-        var(--paper);
-      font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
-    }
-    main {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: clamp(48px, 8vw, 88px) 24px clamp(56px, 8vw, 96px);
-    }
-    .masthead {
-      display: flex;
-      align-items: flex-start;
-      gap: 22px;
-      margin-bottom: 20px;
-    }
-    .seal {
-      flex-shrink: 0;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      border: 1.5px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-weight: 600;
-      font-size: 1.15rem;
-      color: var(--accent);
-      letter-spacing: 0.02em;
-    }
-    .role {
-      margin: 4px 0 8px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    h1 {
-      margin: 0;
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-weight: 600;
-      font-size: clamp(2.6rem, 7vw, 4.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.015em;
-    }
-    .rule {
-      border: none;
-      border-top: 1px solid var(--line);
-      margin: 36px 0;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 56px;
-    }
-    .intro {
-      max-width: 46ch;
-      margin: 0 0 32px;
-      color: var(--ink);
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-style: italic;
-      font-size: 1.22rem;
-      line-height: 1.65;
-    }
-    .about p {
-      max-width: 46ch;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.75;
-      margin: 0 0 20px;
-    }
-    .contact {
-      margin-top: 28px;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .contact a {
-      color: var(--ink);
-      font-weight: 500;
-      text-decoration: underline;
-      text-decoration-color: var(--line);
-      text-underline-offset: 4px;
-      transition: text-decoration-color 150ms ease, color 150ms ease;
-    }
-    .contact a:hover,
-    .contact a:focus-visible {
-      text-decoration-color: var(--accent);
-      color: var(--accent);
-    }
-    .record-heading {
-      margin: 0 0 22px;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-    .record {
-      position: relative;
-      padding-left: 28px;
-    }
-    .record::before {
-      content: "";
-      position: absolute;
-      left: 4px;
-      top: 6px;
-      bottom: 6px;
-      width: 1px;
-      background: var(--line);
-    }
-    .entry {
-      position: relative;
-      padding: 0 0 30px;
-    }
-    .entry:last-child { padding-bottom: 0; }
-    .entry::before {
-      content: "";
-      position: absolute;
-      left: -28px;
-      top: 6px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(138, 44, 44, 0.1);
-    }
-    .entry .years {
-      display: block;
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 0.92rem;
-      color: var(--accent);
-      margin-bottom: 5px;
-    }
-    .entry .field {
-      display: block;
-      font-weight: 500;
-      font-size: 1.08rem;
-      margin-bottom: 4px;
-    }
-    .entry .note {
-      display: block;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-    footer {
-      margin-top: 64px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-    @media (max-width: 680px) {
-      .grid { grid-template-columns: 1fr; gap: 40px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Faculty profile of Dawit H. Demissie, Professor at the Gabelli School of Business, Fordham University.">
+<title>Dawit H. Demissie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,560;1,9..144,420&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10151d;
+    --paper:#eae8e0;
+    --panel:#f4f3ec;
+    --teal:#3a7d76;
+    --brass:#b0813a;
+    --slate:#5b6570;
+    --line: rgba(16,21,29,0.14);
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--teal); color:var(--paper); }
+
+  a{ color:inherit; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+
+  main{
+    max-width:960px;
+    margin:0 auto;
+    padding: clamp(40px,6vw,72px) 24px clamp(64px,8vw,96px);
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    padding-bottom:22px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:8px;
+  }
+  .masthead .tag{
+    font-size:0.8rem;
+    letter-spacing:0.01em;
+    color:var(--slate);
+  }
+  .masthead .tag span{ color:var(--teal); }
+
+  h1{
+    margin: 34px 0 6px;
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:560;
+    font-size:clamp(2.6rem, 6.4vw, 4.4rem);
+    line-height:1.03;
+    letter-spacing:-0.01em;
+  }
+  .role{
+    margin:0 0 40px;
+    color:var(--slate);
+    font-size:1.02rem;
+  }
+
+  /* ---------- Diagram hero ---------- */
+  .diagram-wrap{
+    margin: 8px 0 56px;
+    border:1px solid var(--line);
+    background:var(--panel);
+    border-radius:2px;
+  }
+  .diagram-wrap svg{ display:block; width:100%; height:auto; }
+  .diagram-caption{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:9px 14px;
+    border-top:1px solid var(--line);
+    font-size:0.74rem;
+    color:var(--slate);
+  }
+
+  .node-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    fill:var(--ink);
+  }
+  .node-sub{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:9.5px;
+    fill:var(--slate);
+  }
+  .edge{
+    fill:none;
+    stroke:var(--teal);
+    stroke-width:1.3;
+    stroke-dasharray:400;
+    stroke-dashoffset:400;
+    animation:draw 1.4s ease forwards;
+  }
+  .edge.delay1{ animation-delay:0.15s; }
+  .edge.delay2{ animation-delay:0.3s; }
+  .edge.delay3{ animation-delay:0.45s; }
+  .edge.delay4{ animation-delay:0.6s; }
+  .node-dot{
+    fill:var(--panel);
+    stroke:var(--teal);
+    stroke-width:1.4;
+    opacity:0;
+    animation:appear 0.4s ease forwards;
+  }
+  .node-dot.center{ stroke:var(--brass); fill:var(--ink); }
+  .node-dot.d1{ animation-delay:0.5s; }
+  .node-dot.d2{ animation-delay:0.65s; }
+  .node-dot.d3{ animation-delay:0.8s; }
+  .node-dot.d4{ animation-delay:0.95s; }
+  .node-dot.d0{ animation-delay:0.05s; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @keyframes appear{ to{ opacity:1; } }
+  @media (prefers-reduced-motion: reduce){
+    .edge, .node-dot{ animation:none; stroke-dashoffset:0; opacity:1; }
+  }
+
+  /* ---------- Two column body ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap:56px;
+    padding-top:8px;
+  }
+  .intro{
+    max-width:44ch;
+    margin:0 0 22px;
+    font-family:'Fraunces', Georgia, serif;
+    font-style:italic;
+    font-size:1.2rem;
+    line-height:1.6;
+    color:var(--ink);
+  }
+  .about p{
+    max-width:46ch;
+    color:var(--slate);
+    font-size:0.98rem;
+    line-height:1.75;
+    margin:0 0 18px;
+  }
+  .contact{
+    margin-top:26px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.86rem;
+  }
+  .contact-row{
+    display:flex;
+    gap:14px;
+    align-items:baseline;
+    padding:9px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-row .k{ color:var(--slate); width:64px; flex-shrink:0; }
+  .contact-row a{
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:border-color 150ms ease, color 150ms ease;
+  }
+  .contact-row a:hover, .contact-row a:focus-visible{
+    color:var(--teal);
+    border-color:var(--teal);
+  }
+
+  /* ---------- Ledger ---------- */
+  .ledger-heading{
+    display:flex;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--slate);
+    padding-bottom:10px;
+    border-bottom:1px solid var(--ink);
+    margin-bottom:4px;
+  }
+  .ledger-entry{
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .ledger-entry:last-child{ border-bottom:none; }
+  .ledger-row{
+    display:flex;
+    gap:14px;
+    align-items:baseline;
+  }
+  .ledger-row .stamp{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--teal);
+    white-space:nowrap;
+  }
+  .ledger-row .field{
+    font-weight:500;
+    font-size:1.02rem;
+  }
+  .ledger-note{
+    margin:6px 0 0 0;
+    padding-left:0;
+    color:var(--slate);
+    font-size:0.9rem;
+    line-height:1.65;
+  }
+
+  footer{
+    margin-top:60px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    color:var(--slate);
+    font-size:0.78rem;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width:700px){
+    .grid{ grid-template-columns:1fr; gap:40px; }
+    .diagram-caption{ flex-direction:column; gap:2px; }
+  }
+</style>
 </head>
 <body>
-  <main>
-    <div class="masthead">
-      <div class="seal" aria-hidden="true">DD</div>
-      <div>
-        <p class="role"> Professor at the Gabelli School of Business, Fordham University</p>
-        <h1>Dawit H. Demissie</h1>
+<main>
+
+  <div class="masthead">
+    <div class="tag mono">faculty record <span>· gabelli school of business</span></div>
+    <div class="tag mono">fordham university</div>
+  </div>
+
+  <p class="role">Professor · Director, M.S. in Information Technology</p>
+  <h1>Dawit H. Demissie</h1>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing Dawit Demissie's research at the intersection of cybersecurity analytics, e-government, learning technology, ICT adoption, and ontology-driven machine learning">
+      <!-- edges: center at 450,150 -->
+      <path class="edge delay1" d="M450,150 C380,110 300,90 160,68" />
+      <path class="edge delay2" d="M450,150 C400,90 420,60 470,32" />
+      <path class="edge delay3" d="M450,150 C520,100 620,80 740,60" />
+      <path class="edge delay4" d="M450,150 C480,200 560,232 700,246" />
+      <path class="edge" d="M450,150 C400,205 320,232 190,244" />
+
+      <!-- outer nodes -->
+      <circle class="node-dot d1" cx="160" cy="68" r="5" />
+      <text class="node-label" x="176" y="64">Cybersecurity analytics</text>
+      <text class="node-sub" x="176" y="78">risk &amp; audit data</text>
+
+      <circle class="node-dot d2" cx="470" cy="32" r="5" />
+      <text class="node-label" x="486" y="28">E-government</text>
+      <text class="node-sub" x="486" y="42">ICT adoption</text>
+
+      <circle class="node-dot d3" cx="740" cy="60" r="5" />
+      <text class="node-label" x="756" y="56">Learning technology</text>
+      <text class="node-sub" x="756" y="70">course &amp; platform design</text>
+
+      <circle class="node-dot d4" cx="700" cy="246" r="5" />
+      <text class="node-label" x="716" y="242">Ontology-driven ML</text>
+      <text class="node-sub" x="716" y="256">public policy analysis</text>
+
+      <circle class="node-dot d0" cx="190" cy="244" r="5" />
+      <text class="node-label" x="30" y="240">Robotic process automation</text>
+      <text class="node-sub" x="30" y="254">business analytics</text>
+
+      <!-- center -->
+      <circle class="node-dot center d0" cx="450" cy="150" r="7" />
+      <text class="node-label" x="450" y="180" text-anchor="middle" style="font-size:12px;">D. Demissie</text>
+    </svg>
+    <div class="diagram-caption mono">
+      <span>research map — five converging areas</span>
+      <span>updated 2026</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div>
+      <p class="intro">Working at the intersection of cybersecurity analytics, e-government, and learning technology — building systems that are more secure, efficient, and inclusive.</p>
+      <div class="about">
+        <p>I direct the M.S. in Information Technology program at Gabelli, where I teach business analytics, cybersecurity analytics, audit data analytics, and robotic process automation. My research spans cybersecurity, e-government, learning technologies, and the adoption of information and communication technologies, with recent work on ontology-driven machine learning for public policy analysis.</p>
       </div>
+      <nav class="contact" aria-label="Contact and links">
+        <div class="contact-row"><span class="k">email</span><a href="mailto:ddemissie@fordham.edu">ddemissie@fordham.edu</a></div>
+        <div class="contact-row"><span class="k">phone</span><a href="tel:+15184215506">518.421.5506</a></div>
+        <div class="contact-row"><span class="k">github</span><a href="https://github.com/dawitdemissie" target="_blank" rel="noopener noreferrer">github.com/dawitdemissie</a></div>
+      </nav>
     </div>
 
-    <hr class="rule">
-
-    <div class="grid">
-      <div>
-        <p class="intro">Working at the intersection of cybersecurity analytics, e-government, and learning technology &mdash; building systems that are more secure, efficient, and inclusive.</p>
-        <div class="about">
-          <p>I direct the M.S. in Information Technology program at Gabelli, where I teach business analytics, cybersecurity analytics, audit data analytics, and robotic process automation. My research spans cybersecurity, e-government, learning technologies, and the adoption of information and communication technologies, with recent work on ontology-driven machine learning for public policy analysis.</p>
-        </div>
-        <nav class="contact" aria-label="Contact and links">
-          <a href="mailto:ddemissie@fordham.edu">Email</a>
-          <a href="tel:+15184215506">518&#8209;421&#8209;5506</a>
-          <a href="https://github.com/dawitdemissie" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </nav>
+    <div>
+      <div class="ledger-heading">
+        <span>record</span>
+        <span>span</span>
       </div>
-
-      <div>
-        <p class="record-heading">At a glance</p>
-        <section class="record" aria-label="Career record">
-          <div class="entry">
-            <span class="years">2012 &ndash; present</span>
+      <section aria-label="Career record">
+        <div class="ledger-entry">
+          <div class="ledger-row">
+            <span class="stamp">[2012 —&nbsp;&nbsp;&nbsp;&nbsp;]</span>
             <span class="field">Teaching</span>
-            <span class="note">Fordham,University at Albany SUNY, Syracuse University, The University of Oklahoma, 
-              State University of New York at Oswego, Excelsior University, Russell Sage College,
-              Kennesaw State University and Siena University.</span>
           </div>
-          <div class="entry">
-            <span class="years">2008 &ndash; present</span>
+          <p class="ledger-note">Fordham, University at Albany SUNY, Syracuse University, The University of Oklahoma, SUNY Oswego, Excelsior University, Russell Sage College, Kennesaw State University, and Siena University.</p>
+        </div>
+        <div class="ledger-entry">
+          <div class="ledger-row">
+            <span class="stamp">[2008 —&nbsp;&nbsp;&nbsp;&nbsp;]</span>
             <span class="field">Research</span>
-            <span class="note">40+ journal articles, book chapters, and conference papers.</span>
           </div>
-          <div class="entry">
-            <span class="years">2024 &ndash; present</span>
+          <p class="ledger-note">40+ journal articles, book chapters, and conference papers.</p>
+        </div>
+        <div class="ledger-entry">
+          <div class="ledger-row">
+            <span class="stamp">[2024 —&nbsp;&nbsp;&nbsp;&nbsp;]</span>
             <span class="field">Program direction</span>
-            <span class="note">M.S. in Information Technology, Gabelli School of Business.</span>
           </div>
-          <div class="entry">
-            <span class="years">2009 &ndash; present</span>
+          <p class="ledger-note">M.S. in Information Technology, Gabelli School of Business.</p>
+        </div>
+        <div class="ledger-entry">
+          <div class="ledger-row">
+            <span class="stamp">[2009 —&nbsp;&nbsp;&nbsp;&nbsp;]</span>
             <span class="field">Honors</span>
-            <span class="note">Seven teaching and research awards, including the Dean's Award for Impact.</span>
           </div>
-        </section>
-      </div>
+          <p class="ledger-note">Seven teaching and research awards, including the Dean's Award for Impact.</p>
+        </div>
+      </section>
     </div>
+  </div>
 
-    <footer>&copy; <span id="year"></span> Dawit Demissie</footer>
-  </main>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <footer>
+    <span>&copy; <span id="year"></span> Dawit Demissie</span>
+    <span>gabelli.fordham.edu</span>
+  </footer>
+</main>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
