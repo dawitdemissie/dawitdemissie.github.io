@@ -82,6 +82,31 @@
     color:var(--slate);
   }
   .masthead .tag span{ color:var(--teal); }
+  .gabelli-link{
+    color:inherit;
+    text-decoration:none;
+    border-bottom:1px solid var(--teal);
+    transition: color 150ms ease, border-color 150ms ease;
+  }
+  .gabelli-link:hover, .gabelli-link:focus-visible{
+    color:var(--brass);
+    border-color:var(--brass);
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(10px);
+    animation: reveal-in 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .reveal.r1{ animation-delay:0s; }
+  .reveal.r2{ animation-delay:0.1s; }
+  .reveal.r3{ animation-delay:0.2s; }
+  @keyframes reveal-in{
+    to{ opacity:1; transform:translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ animation:none; opacity:1; transform:none; }
+    .diagram-wrap{ transition:none; transform:none !important; }
+  }
   .clock{
     display:flex;
     align-items:center;
@@ -89,12 +114,13 @@
     font-size:0.78rem;
     color:var(--slate);
   }
-  .clock .dot{
+  .clock .dot, .status-dot{
     width:6px; height:6px;
     border-radius:50%;
     background:var(--teal);
-    box-shadow:0 0 0 3px rgba(79,173,161,0.18);
+    box-shadow:0 0 0 3px rgba(47,125,116,0.18);
     animation:pulse 2.4s ease-in-out infinite;
+    display:inline-block;
   }
   @keyframes pulse{
     0%,100%{ opacity:1; }
@@ -125,6 +151,11 @@
     background:var(--panel);
     border-radius:2px;
     overflow:hidden;
+    transform-style:preserve-3d;
+    perspective:900px;
+    transform: rotateX(var(--tiltx,0deg)) rotateY(var(--tilty,0deg));
+    transition: transform 350ms ease;
+    will-change: transform;
   }
   .diagram-wrap svg{ display:block; width:100%; height:auto; position:relative; }
   .diagram-caption{
@@ -272,6 +303,9 @@
     color:var(--teal);
     white-space:nowrap;
   }
+  .ledger-row .status-dot{
+    align-self:center;
+  }
   .ledger-row .field{
     font-weight:500;
     font-size:1.02rem;
@@ -314,15 +348,15 @@
 <div class="grain" aria-hidden="true"></div>
 <main>
 
-  <div class="masthead">
-    <div class="tag mono">faculty record <span>· gabelli school of business</span></div>
+  <div class="masthead reveal r1">
+    <div class="tag mono">faculty record <span>· <a href="https://www.gabelli.fordham.edu/" target="_blank" rel="noopener noreferrer" class="gabelli-link">Gabelli School of Business</a></span></div>
     <div class="clock mono"><span class="dot"></span><span>ET</span>&nbsp;<span id="time">--:--:--</span></div>
   </div>
 
-  <p class="role">Professor · Director, M.S. in Information Technology · Fordham University</p>
-  <h1>Dawit H. Demissie</h1>
+  <p class="role reveal r2">Professor · Director, M.S. in Information Technology · Fordham University</p>
+  <h1 class="reveal r3">Dawit H. Demissie</h1>
 
-  <div class="diagram-wrap">
+  <div class="diagram-wrap" id="diagramWrap">
     <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing Dawit Demissie's research at the intersection of cybersecurity analytics, e-government, learning technology, robotic process automation, and ontology-driven machine learning">
 
       <g class="node-group" tabindex="0">
@@ -390,6 +424,7 @@
       <section aria-label="Career record">
         <div class="ledger-entry">
           <div class="ledger-row">
+            <span class="status-dot" aria-hidden="true" title="ongoing"></span>
             <span class="stamp">[2012 — present]</span>
             <span class="field">Teaching</span>
           </div>
@@ -397,6 +432,7 @@
         </div>
         <div class="ledger-entry">
           <div class="ledger-row">
+            <span class="status-dot" aria-hidden="true" title="ongoing"></span>
             <span class="stamp">[2008 — present]</span>
             <span class="field">Research</span>
           </div>
@@ -404,6 +440,7 @@
         </div>
         <div class="ledger-entry">
           <div class="ledger-row">
+            <span class="status-dot" aria-hidden="true" title="ongoing"></span>
             <span class="stamp">[2024 — present]</span>
             <span class="field">Program direction</span>
           </div>
@@ -411,6 +448,7 @@
         </div>
         <div class="ledger-entry">
           <div class="ledger-row">
+            <span class="status-dot" aria-hidden="true" title="ongoing"></span>
             <span class="stamp">[2009 — present]</span>
             <span class="field">Honors</span>
           </div>
@@ -454,6 +492,24 @@
     window.addEventListener("touchmove", (e) => {
       if(e.touches && e.touches[0]) setSpot(e.touches[0].clientX, e.touches[0].clientY);
     }, { passive:true });
+
+    const diagramWrap = document.getElementById("diagramWrap");
+    if(diagramWrap){
+      diagramWrap.addEventListener("pointermove", (e) => {
+        const rect = diagramWrap.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width;   // 0..1
+        const py = (e.clientY - rect.top) / rect.height;   // 0..1
+        const maxDeg = 3.5;
+        const tiltY = (px - 0.5) * 2 * maxDeg;
+        const tiltX = -(py - 0.5) * 2 * maxDeg;
+        diagramWrap.style.setProperty("--tiltx", tiltX.toFixed(2) + "deg");
+        diagramWrap.style.setProperty("--tilty", tiltY.toFixed(2) + "deg");
+      }, { passive:true });
+      diagramWrap.addEventListener("pointerleave", () => {
+        diagramWrap.style.setProperty("--tiltx", "0deg");
+        diagramWrap.style.setProperty("--tilty", "0deg");
+      });
+    }
   }
 </script>
 </body>
